@@ -33,8 +33,12 @@ unique_name_in_owner = true
 position = Vector2(-190, -238)
 rotation = -0.00350876
 
-[node name="Timer" type="Timer" parent="."]
+[node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.3
+autostart = true
+
+[node name="BossMobTimer" type="Timer" parent="."]
+wait_time = 15.0
 autostart = true
 
 [node name="GameOver" type="CanvasLayer" parent="."]
@@ -66,4 +70,5 @@ theme_override_font_sizes/font_size = 146
 text = "Game Over"
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BossMobTimer" to="." method="_on_boss_mob_timer_timeout"]
