@@ -1,9 +1,5 @@
 # Workflow to publish Godot HTML5 games to GitHub Pages
-#
-# This script assumes that the project itself is in a subdirectory "project". This
-# folder structure frees up the root of the repository to be used for non-project
-# files, such as the README, build folder, or raw assets folder.
-#
+
 # Make sure your project is configured for Web export
 # to the path `build/web`.
 
@@ -36,8 +32,7 @@ jobs:
       - name: Web Build
         run: |
           mkdir -v -p build/web
-          cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Web" ../build/web/index.html
+          godot --headless --verbose --export-release "Web" build/web/index.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
