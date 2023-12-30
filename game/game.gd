@@ -2,6 +2,13 @@ extends Node2D
 
 const MOB_SCENE = preload("res://game/mobs/mob.tscn")
 const BOSS_MOB_SCENE = preload("res://game/mobs/boss_mob.tscn")
+const SMOKE_SCENE = preload("res://assets/smoke_explosion/smoke_explosion.tscn")
+
+func _ready():
+	# Avoid jitter later on
+	var smoke = SMOKE_SCENE.instantiate()
+	add_child(smoke)
+	smoke.global_position = Vector2(0, 0)
 
 func spawn_mob():
 	var new_mob = MOB_SCENE.instantiate()

@@ -91,7 +91,7 @@ project/assembly_name="Getting started with Godot 4"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/colorpicker_presets/plugin.cfg")
+enabled=PackedStringArray("res://addons/colorpicker_presets/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [input]
 
@@ -120,7 +120,12 @@ move_down={
 
 3d_physics/layer_2="player"
 
+[physics]
+
+2d/run_on_separate_thread=true
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
