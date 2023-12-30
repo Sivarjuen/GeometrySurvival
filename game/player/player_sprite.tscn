@@ -1,0 +1,205 @@
+[gd_scene load_steps=12 format=3 uid="uid://bel2uxjtfqcs"]
+
+[ext_resource type="Script" path="res://game/player/player_sprite.gd" id="1_bobj8"]
+[ext_resource type="Texture2D" uid="uid://b22c2vt0aoi4f" path="res://assets/characters/player/player-body.png" id="1_d4a30"]
+[ext_resource type="Texture2D" uid="uid://c7gaxld7f5b4d" path="res://assets/characters/player/player-eyes-open.png" id="2_m2pm0"]
+[ext_resource type="Texture2D" uid="uid://tqlxpp73fbsv" path="res://assets/characters/player/player-eyes-blink.png" id="3_rlvq2"]
+
+[sub_resource type="Animation" id="Animation_nqjvk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor/Player-body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Anchor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Anchor/Face:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -30)]
+}
+
+[sub_resource type="Animation" id="Animation_t70ke"]
+resource_name = "body_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor/Player-body:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05, 0.95), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Anchor/Face:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, -2, 1),
+"update": 0,
+"values": [Vector2(0, -30), Vector2(0, -27), Vector2(0, -30)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Anchor:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y1ieg"]
+resource_name = "body_walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor/Player-body:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(0.9, 1.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Anchor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Anchor/Face:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -30), Vector2(0, -32), Vector2(0, -30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iaeiy"]
+_data = {
+"RESET": SubResource("Animation_nqjvk"),
+"body_idle": SubResource("Animation_t70ke"),
+"body_walk": SubResource("Animation_y1ieg")
+}
+
+[sub_resource type="Animation" id="Animation_c2efh"]
+resource_name = "eyes_blink"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor/Face/Eyes/Player-eyes-open:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.5, 3.6, 3.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_m2pm0"), ExtResource("3_rlvq2"), ExtResource("2_m2pm0"), ExtResource("3_rlvq2"), ExtResource("2_m2pm0")]
+}
+
+[sub_resource type="Animation" id="Animation_6umev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor/Face/Eyes/Player-eyes-open:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_m2pm0")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0cs1n"]
+_data = {
+"RESET": SubResource("Animation_6umev"),
+"eyes_blink": SubResource("Animation_c2efh")
+}
+
+[node name="PlayerSprite" type="Node2D"]
+modulate = Color(1, 0.796078, 0.388235, 1)
+script = ExtResource("1_bobj8")
+
+[node name="Anchor" type="Marker2D" parent="."]
+
+[node name="Player-body" type="Sprite2D" parent="Anchor"]
+texture = ExtResource("1_d4a30")
+offset = Vector2(0, -30)
+
+[node name="Face" type="Marker2D" parent="Anchor"]
+position = Vector2(0, -30)
+
+[node name="Eyes" type="Marker2D" parent="Anchor/Face"]
+unique_name_in_owner = true
+
+[node name="Player-eyes-open" type="Sprite2D" parent="Anchor/Face/Eyes"]
+modulate = Color(1, 1, 1, 0.756863)
+position = Vector2(0, 4)
+texture = ExtResource("2_m2pm0")
+
+[node name="BodyAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_iaeiy")
+}
+playback_default_blend_time = 0.2
+
+[node name="EyesAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_0cs1n")
+}

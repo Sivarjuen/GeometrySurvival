@@ -7,7 +7,6 @@
 radius = 713.101
 
 [node name="Gun" type="Area2D"]
-rotation = -4.60767
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_vgwrj")
@@ -16,16 +15,15 @@ script = ExtResource("1_vgwrj")
 shape = SubResource("CircleShape2D_pqy57")
 
 [node name="WeaponPivot" type="Marker2D" parent="."]
-rotation = -0.00921624
 
 [node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
 unique_name_in_owner = true
-position = Vector2(97.0027, -9.58983)
+position = Vector2(76.0027, -9.58983)
 texture = ExtResource("1_jmbo5")
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
 unique_name_in_owner = true
-position = Vector2(42.1849, -10.1282)
+position = Vector2(37.1849, -10.1282)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3

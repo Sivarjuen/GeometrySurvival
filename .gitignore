@@ -4,6 +4,11 @@
 # Godot-specific ignores
 .import/
 build/
+*.tmp
+
+# Aseprite exports
+assets/projects/*.png
+assets/projects/*.import
 
 # Imported translations (automatically generated from CSV files)
 *.translation

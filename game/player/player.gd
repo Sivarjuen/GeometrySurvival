@@ -10,9 +10,9 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if velocity.length() > 0.0:
-		%HappyBoo.play_walk_animation()
+		%PlayerSprite.play_walk_animation()
 	else:
-		%HappyBoo.play_idle_animation()
+		%PlayerSprite.play_idle_animation()
 
 	const DAMAGE_RATE = 5.0
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
@@ -21,3 +21,6 @@ func _physics_process(delta):
 		%ProgressBar.value = health
 		if health <= 0.0:
 			health_depleted.emit()
+			
+	var target = %Gun.target
+	%PlayerSprite.look_at_target(target)
