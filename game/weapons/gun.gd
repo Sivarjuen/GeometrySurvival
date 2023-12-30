@@ -4,7 +4,6 @@ const BULLET = preload("res://game/weapons/bullet.tscn")
 var target = null
 
 func _physics_process(delta):
-	print(rotation_degrees)
 	var angle = rotation_degrees
 	if rotation_degrees > 360:
 		angle = fmod(rotation_degrees,360)

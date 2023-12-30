@@ -1,9 +1,9 @@
-# Workflow to publish Godot HTML5 games to GitHub Pages
+# Workflow to publish Godot HTML5 games to GitHub Pages and Itch.io
 
 # Make sure your project is configured for Web export
 # to the path `build/web`.
 
-name: "Publish to GitHub Pages"
+name: "Publish to Web"
 
 env:
   GODOT_VERSION: 4.2.1 # Remember to manually set image to this version below.
@@ -46,3 +46,17 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: build/web # The folder the action should deploy.
+      - name: Zip files for Itch
+        uses: vimtor/action-zip@v1.1
+        with:
+          files: build/web/
+          dest: build/web.zip
+      - name: Deploy to Itch with Butler
+        uses: Ayowel/butler-to-itch@v1.0.0
+        with:
+          butler_key: ${{ secrets.BUTLER_CREDENTIALS }}
+          itch_user: ExodusIV
+          itch_game: geometry-survival
+          version: ${{ github.ref_name }}
+          files: |
+            web build/web.zip
